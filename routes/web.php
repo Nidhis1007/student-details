@@ -27,6 +27,7 @@ Route::get('/',[LoginAccessController::class,'home'])->name('login');
 Route::prefix('register')->group(function(){
     Route::post('/createuser',[LoginAccessController::class,'authenticateUser']);
     Route::post('/userlogin',[LoginAccessController::class,'userlogin']);
+    
 });
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/dashboard', [StudentController::class,'dashboard']);
